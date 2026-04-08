@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Git tag to checkout (e.g., v3.5.2, v3.6.1, v4.1.0)"
+        description: "Image tag label (e.g., v3.5.2, v3.6.1, v4.1.0) - used in ECR tag only, always builds from current branch"
         required: true
         type: string
       php_versions:
@@ -50,10 +50,8 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
     steps:
-      - name: Checkout at tag
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.tag }}
 
       - name: Resolve NGINX version
         id: nginx
