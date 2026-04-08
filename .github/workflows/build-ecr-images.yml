@@ -107,10 +107,10 @@ jobs:
             REPOSITORY_BUILD_VERSION=${{ inputs.tag }}
             ${{ steps.nginx.outputs.nginx_arg }}
           tags: |
-            ${{ secrets.GHA_ECR_REPO }}:${{ matrix.php_version }}-fpm-nginx-bookworm-${{ inputs.tag }}
+            ${{ secrets.IMG_REPO }}:${{ matrix.php_version }}-fpm-nginx-bookworm-${{ inputs.tag }}
 
       - name: Verify PHP version
         run: |
           docker run --rm --platform linux/arm64 \
-            "${{ secrets.GHA_ECR_REPO }}:${{ matrix.php_version }}-fpm-nginx-bookworm-${{ inputs.tag }}" \
+            "${{ secrets.IMG_REPO }}:${{ matrix.php_version }}-fpm-nginx-bookworm-${{ inputs.tag }}" \
             php -v
