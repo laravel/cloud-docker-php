@@ -7,6 +7,9 @@ on:
   schedule:
     - cron: '25 8 * * 1'
 
+permissions:
+  contents: read
+
 jobs:
   get-latest-beta-release:
     runs-on: ubuntu-24.04

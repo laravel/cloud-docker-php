@@ -6,3 +6,12 @@ updates:
       interval: "daily"
     allow:
       - dependency-name: "@serversideup/project-switcher-bar"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
