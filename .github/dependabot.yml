@@ -4,5 +4,7 @@ updates:
     directory: "/docs"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 5
     allow:
       - dependency-name: "@serversideup/project-switcher-bar"
